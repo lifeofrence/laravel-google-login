@@ -1,4 +1,6 @@
 <x-guest-layout>
+
+
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
@@ -31,21 +33,32 @@
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
             </div>
+<div class="mt-4 block w-full mb-4">
+    <x-button class="w-full text-center justify-center">
+        {{ __('Login') }}
+    </x-button>
+</div>
 
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
+
+
+            <hr>
+  <div class="mt-4 block w-full mb-4" style="display: flex; justify-content: center;">
+  <a href="{{ url('auth/google') }}" style="margin-top: 0px !important; background: #4285F4; color: #ffffff; padding: 8px; border-radius: 6px; margin-right: 10px;">
+    <strong>Continue with Google <i class="fas fas-google" aria-hidden="true"></i></strong>
+  </a>
+  <a href="{{ url('/register') }}" style="margin-top: 0px !important; background: #C84130; color: #ffffff; padding: 8px; border-radius: 6px;">
+    <strong>Create Account</strong>
+  </a>
+</div>
+
+
+            <div>
+
+                  @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
-
-                <x-button class="ml-4">
-                    {{ __('Login') }}
-                </x-button>
-
-                <a href="{{ url('auth/google') }}" style="margin-top: 0px !important;background: #C84130;color: #ffffff;padding: 8px;border-radius:6px;" class="ml-2">
-                  <strong>Login with Google</strong>
-                </a>
             </div>
         </form>
     </x-authentication-card>

@@ -18,8 +18,9 @@ use App\Http\Controllers\GoogleController;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
+
 
 Route::middleware([
     'auth:sanctum',
